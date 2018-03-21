@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -19,7 +20,7 @@ public class User {
     @Column(unique = true)
     private String email;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "connectedUser", fetch = FetchType.EAGER)
-    private ArrayList<Post> userPosts;
+    private List<Post> userPosts = new ArrayList<>();
 
     public User(){
     }
@@ -72,8 +73,12 @@ public class User {
         this.email = email;
     }
 
-    public ArrayList<Post> getUserPosts() {
+    public List<Post> getUserPosts() {
         return userPosts;
+    }
+
+    public void setUserPosts(List<Post> userPosts) {
+        this.userPosts = userPosts;
     }
 
     public void setUserPosts(ArrayList<Post> userPosts) {

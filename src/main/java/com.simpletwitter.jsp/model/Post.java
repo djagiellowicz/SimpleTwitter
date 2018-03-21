@@ -9,6 +9,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String text;
+    @Temporal(TemporalType.DATE)
     private LocalDateTime postDate;
     @ManyToOne
     @JoinColumn(name = "user_id")

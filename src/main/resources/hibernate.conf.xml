@@ -7,10 +7,11 @@
     <session-factory>
         <property name="hbm2ddl.auto">create</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/NOT_YET_DEFINED</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/twitterschema</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.username">NOT_YET_DEFINED</property>
-        <property name="connection.password">NOT_YET_DEFINED</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">test</property>
+        <property name="show_sql">true</property>
 
         <mapping class="com.simpletwitter.jsp.model.User"/>
         <mapping class="com.simpletwitter.jsp.model.Post"/>
