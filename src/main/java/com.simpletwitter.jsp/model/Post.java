@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String text;
-    @Temporal(TemporalType.DATE)
     private LocalDateTime postDate;
     @ManyToOne
     @JoinColumn(name = "user_id")
