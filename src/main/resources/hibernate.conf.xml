@@ -12,7 +12,8 @@
         <property name="connection.username">NOT_YET_DEFINED</property>
         <property name="connection.password">NOT_YET_DEFINED</property>
 
-        <mapping class=""/>
+        <mapping class="com.simpletwitter.jsp.model.User"/>
+        <mapping class="com.simpletwitter.jsp.model.Post"/>
 
 
     </session-factory>
