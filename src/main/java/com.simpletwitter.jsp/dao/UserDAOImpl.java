@@ -5,6 +5,7 @@ import com.simpletwitter.jsp.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,10 +41,11 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void saveUser(User user) {
         Session session = HibernateSession.getSessionFactory().openSession();
-        session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(user);
-        session.getTransaction().commit();
+        transaction.commit();
         session.close();
+        return;
     }
 
     @Override
@@ -53,6 +55,7 @@ public class UserDAOImpl implements UserDAO {
         session.update(user);
         session.getTransaction().commit();
         session.close();
+        return;
     }
 
     @Override
@@ -62,5 +65,6 @@ public class UserDAOImpl implements UserDAO {
         session.delete(user);
         session.getTransaction().commit();
         session.close();
+        return;
     }
 }
