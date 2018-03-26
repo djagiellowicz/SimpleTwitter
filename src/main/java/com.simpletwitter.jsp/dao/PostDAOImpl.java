@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PostDAOImpl implements PostDAO {
     @Override
@@ -45,6 +44,16 @@ public class PostDAOImpl implements PostDAO {
         Session session = HibernateSession.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(post);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    @Override
+    public void deletePostById(Long id) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("DELETE Post WHERE id=:id").setParameter("id",id);
+        query.executeUpdate();
         session.getTransaction().commit();
         session.close();
     }

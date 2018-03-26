@@ -59,6 +59,17 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public void deleteUserById(Long id) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("DELETE User WHERE id=:id").setParameter("id",id);
+        query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
+        return;
+    }
+
+    @Override
     public void deleteUser(User user) {
         Session session = HibernateSession.getSessionFactory().openSession();
         session.beginTransaction();
