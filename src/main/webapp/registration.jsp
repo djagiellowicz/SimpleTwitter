@@ -8,18 +8,38 @@
 <%@include file="header.jsp"%>
 <h1>Please register:</h1>
 <%-- TODO: Change get to post, and set action --%>
-<form method="get" action="">
+<form method="post" action="/userRegistration">
     Login:<br>
     <input type="text" name="login"><br>
+
+    <%if (request.getAttribute("uniquelogin") != null){
+        Boolean isUniqueLogin = (Boolean) request.getAttribute("uniquelogin");
+        if (false == isUniqueLogin){
+    %><span class="errorRed"> Login is already used </span><br><%
+        }}%>
+
     E-mail:<br>
-    <input type="email" name="email">
-    <br>
+    <input type="email" name="email"><br>
+
+    <%if (request.getAttribute("uniqueemail") != null){
+                Boolean isUniqueEmail = (Boolean) request.getAttribute("uniqueemail");
+        if (false == isUniqueEmail){
+    %> <span class="errorRed"> Email is already used </span><br><%
+        }}%>
+
     Password:<br>
-    <input type="password" name="password">
-    <br>
+    <input type="password" name="password"><br>
     Confirm password:<br>
-    <input type="password" name="passwordConfirmation">
+    <input type="password" name="passwordConf"><br>
+
+    <%if (request.getAttribute("passwordsmatch") != null){
+    Boolean doesPasswordsMatch = (Boolean) request.getAttribute("passwordsmatch");
+    if (false == doesPasswordsMatch){
+    %> <span class="errorRed"> Password does not mach </span><br><%
+    }}%>
+
     <br>
     <input type="submit" value="Register">
+
 </form>
 <%@include file="footer.jsp"%>

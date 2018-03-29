@@ -77,10 +77,6 @@ public class User {
         return userPosts;
     }
 
-    public void setUserPosts(List<Post> userPosts) {
-        this.userPosts = userPosts;
-    }
-
     public void setUserPosts(ArrayList<Post> userPosts) {
         this.userPosts = userPosts;
     }

@@ -39,6 +39,28 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User getUserByLogin(String login) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("FROM User u WHERE u.login = :login").setParameter("login", login);
+        User user = (User) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
+        return user;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        Session session = HibernateSession.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("FROM User u WHERE u.email = :email").setParameter("email", email);
+        User user = (User) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
+        return user;
+    }
+
+    @Override
     public void saveUser(User user) {
         Session session = HibernateSession.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
