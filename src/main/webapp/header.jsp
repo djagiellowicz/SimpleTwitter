@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.simpletwitter.jsp.model.User" %><%--
   Created by IntelliJ IDEA.
   User: DARJ
   Date: 26.03.2018
@@ -11,4 +11,8 @@
     <title>Simple Twitter</title>
 </head>
 <body>
+<%  User loggedUser = (User) request.getSession().getAttribute("loggedUser");
+if (loggedUser != null){%>
+    Logged User: <%=loggedUser.getLogin()%>
+<%}%>
 
