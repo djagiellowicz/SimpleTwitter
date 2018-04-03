@@ -5,7 +5,7 @@
     Password: <input type="password" name="password"><br>
     <% String loginError = (String) request.getAttribute("loginError");
     if (loginError != null){%>
-    <%=loginError.toString()%><br>
+    <%=loginError%><br>
     <%}%>
     <input type="submit" value="Login">
 </form>

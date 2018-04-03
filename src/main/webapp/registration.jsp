@@ -15,7 +15,7 @@
     <%if (request.getAttribute("uniquelogin") != null){
         Boolean isUniqueLogin = (Boolean) request.getAttribute("uniquelogin");
         if (false == isUniqueLogin){
-    %><span class="errorRed"> Login is already used </span><br><%
+    %><span class="error"> Login is already used </span><br><%
         }}%>
 
     E-mail:<br>
@@ -24,7 +24,7 @@
     <%if (request.getAttribute("uniqueemail") != null){
                 Boolean isUniqueEmail = (Boolean) request.getAttribute("uniqueemail");
         if (false == isUniqueEmail){
-    %> <span class="errorRed"> Email is already used </span><br><%
+    %> <span class="error"> Email is already used </span><br><%
         }}%>
 
     Password:<br>
@@ -35,7 +35,7 @@
     <%if (request.getAttribute("passwordsmatch") != null){
     Boolean doesPasswordsMatch = (Boolean) request.getAttribute("passwordsmatch");
     if (false == doesPasswordsMatch){
-    %> <span class="errorRed"> Password does not mach </span><br><%
+    %> <span class="error"> Password does not mach </span><br><%
     }}%>
 
     <br>

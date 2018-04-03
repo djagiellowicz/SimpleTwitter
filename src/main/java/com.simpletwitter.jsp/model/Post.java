@@ -1,5 +1,7 @@
 package com.simpletwitter.jsp.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -10,8 +12,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String text;
+    @NotNull
     private LocalDateTime postDate;
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
     private User connectedUser;
 
